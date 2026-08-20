@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ambito de variables</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        //VARIABLES LOCALES Y GLOBALES
+        //LOCALES SON AQUELLAS DE ÁMBITO DE FUNCIÓN
+        function saludos() {
+            var saludo = "Hola, ¿qué tal?";
+            alert(saludo);
+        };
+
+        saludos();
+
+        //GLOBALES SON AQUELLAS DE ÁMBITO DE PÁGINA
+        var saludo = "Hola, ¿qué tal?";
+        function saludos() {
+            alert(saludo);
+        };
+        saludos();
+        alert(saludo);
+
+        //GLOBALES DENTRO DE FUNCIONES
+        function saludos() {
+            saludo = "Hola, ¿qué tal?";  //No recomendado  -- "use strict"
+        };
+
+        saludos();
+        alert(saludo);
+
+        //LET Y CONST
+        //LET SON VARIABLES PARA USO DE BLOQUE DE CÓDIGO
+        saludos();
+        if (saludo != "") {
+            let mensaje = "Se muestra una variable local";
+            alert(mensaje);
+        }
+        //alert(mensaje);
+
+        //CONST SE REFIERE A UNA CONSTANTE
+        //Solo se puede asignar una sola vez;
+
+        const pi = 3.14;
+        alert(pi);
+        /* pi += 2;
+        alert(pi); */
+
+        //REDECLARACIÓN DE VARIABLES Y CONSTANTES
+        //VAR
+        var nombre = "Liher";
+        var nombre = "Liher2";
+        console.log(nombre);
+
+        function datos() {
+            var nombre = "Liher en función";
+            console.log(nombre);
+        }
+        datos();
+        console.log(nombre);
+
+        //LET
+        let apellido = "Bilbao";
+        //let apellido = "Bilbao2";
+        console.log(apellido);
+
+        function datos2() {
+            let apellido = "Bilbao en función";
+            console.log(apellido);
+        }
+        datos2();
+        console.log(apellido);
+
+        //CONST
+        const edad = 33;
+        //const edad = 34;
+        console.log(edad);
+
+        function datos3() {
+            const edad = "Treinta y pocos";
+            console.log(edad);
+        }
+        datos3();
+        console.log(edad);
+
+        // USE STRICT O MODO ESTRICTO
+
+        /* "use strict" es una línea que indica que el código debe ser usado "en modo estricto",
+           es decir, no se pueden utilizar variables no declaradas.
+           Fuera de una función tiene ámbito global; dentro de ella, local (el de la función). */
+
+        // SINTAXIS: "use strict";
+
+        "use strict";
+
+        persona2 = "Charles";
+        //let nacimiento;
+
+        function informacion() {
+            //"use strict";
+            let persona = "Ada";
+            nacimiento = "1815";
+            console.log(persona + " nacio en " + nacimiento);
+        }
+
+        informacion();
+
+    </script>
+
+</body>
+
+</html>

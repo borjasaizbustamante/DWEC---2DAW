@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Condicionales y bucles</title>
+</head>
+<body>
+    <script>
+    //CONDICIONALES
+    // if
+    //if ... else
+    //if ... else if... else
+
+    var  edad = 16;
+    if (edad >= 18) {
+        alert("IF Usted tiene derecho a voto.");
+    } else {
+        alert("ELSE Usted no tiene edad para votar aún.");
+    }
+
+    var nota = 3;
+    if (nota<5) {
+        alert("IF Has sacado un " + nota + " y por tanto tienes un SUSPENSO.");
+    } else if (nota >= 5) {
+        alert("ELSE IF Has sacado un " + nota + " y por tanto tienes un APROBADO.");
+    } else {
+        alert("ELSE Usted no tiene resultado en esta evaluación.");
+    }
+
+    //SWITCH
+    //CASE
+
+    var notaFinal = 7;
+    switch (notaFinal) {
+        case 1: 
+        case 2: 
+        case 3: 
+        case 4:
+            alert("CASE Has sacado un " + notaFinal + " y por tanto tienes un SUSPENSO.");
+            break;
+        case 5:
+            alert("CASE Has sacado un " + notaFinal + " y por tanto tienes un APROBADO.");
+            break;
+        case 6:
+            alert("CASE Has sacado un " + notaFinal + " y por tanto tienes un BIEN.");
+            break;
+        case 7:
+        case 8: 
+        alert("CASE Has sacado un " + notaFinal + " y por tanto tienes un MUY BIEN.");
+            break;
+        case 9:
+        case 10:
+            alert("CASE Has sacado un " + notaFinal + " y por tanto tienes un SOBRESALIENTE.");
+            break;
+    }
+
+    //BUCLES
+    //FOR
+        for (i = 1; i < 5; i++) {
+            document.write("Iteración número " + i + "<br>");
+        }
+
+    //WHILE
+        var j = 6;
+        while (j < 5) {
+            document.write("Iteración número " + j + "<br>"); 
+            j++;
+        }
+
+    //DO ... WHILE
+        var k = 6;
+        do {
+            document.write("Iteración número " + k + "<br>"); 
+            k++   
+        } while (i < 5);
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etiquetas y saltos</title>
+</head>
+
+<body>
+    <script>
+        //SALTOS
+        //break
+        for (var i = 0; i < 5; i++) {
+            if (i == 3) {
+                break;
+            }
+            alert("La variable i tiene el valor : " + i);
+
+        }
+
+        //continue
+        for (var j = 0; j < 5; j++) {
+            if (j == 3) {
+                continue;
+            }
+            alert("La variable j tiene el valor : " + j);
+        }
+
+        //Saltos con ETIQUETAS
+        //Etiquetas y break
+
+        var animales = ["perro", "gato", "conejo"];
+
+        ver_animales:
+        {
+            alert(animales[0]);
+            alert(animales[1]);
+            if (animales[2] == "conejo") {
+                break ver_animales;
+            }
+            alert(animales[2]);
+        }
+
+        //Etiquetas y continue
+        bucle:
+        for (k = 0; k < 4; k++) {
+            alert(animales[0]);
+            alert(animales[1]);
+            if (animales[2] == "conejo") {
+                continue bucle;
+            }
+            alert(animales[2]);
+        }
+    </script>
+</body>
+
+</html>

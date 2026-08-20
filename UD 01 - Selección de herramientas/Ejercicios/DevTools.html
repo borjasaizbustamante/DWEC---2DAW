@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica DevTools - UD01</title>
+  <style>
+    
+    :root {
+      --color-primary: #0284c7;
+      --color-bg: #f8fafc;
+      --color-text: #0f172a;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      border-bottom: 2px solid var(--color-primary);
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      color: var(--color-primary);
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .recurso-img {
+      max-width: 150px;
+      height: auto;
+      display: block;
+      margin: 1rem 0;
+    }
+
+    button {
+      background-color: var(--color-primary);
+      color: #ffffff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* Foco visible garantizado para a11y */
+    button:focus-visible {
+      outline: 3px solid #0f172a;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <!-- Tarea 1: Los alumnos inspeccionarán y cambiarán este texto desde el DOM -->
+    <h1 id="titulo-principal">Cabecera Original del Sitio Web</h1>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>1. Inspección de Recursos Estáticos</h2>
+      <p>A continuación se muestra un recurso gráfico estático (SVG en formato Data URI):</p>
+      
+      <img 
+        class="recurso-img" 
+        id="logo-practica"
+        src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%230284c7'/><text x='50%' y='55%' font-size='20' text-anchor='middle' fill='white' font-family='sans-serif'>DEV</text></svg>" 
+        alt="Logo de prueba de DevTools"
+      >
+    </section>
+
+    <section class="card">
+      <h2>2. Ejecución en Consola</h2>
+      <p>Abre la consola para interactuar con la página o haz clic en el botón:</p>
+      <button type="button" id="btn-accion">Ejecutar Acción</button>
+    </section>
+  </main>
+
+  <script>
+
+    const usuarioPrueba = {
+      nombre: "Alumno FP",
+      modulo: "Desarrollo Web en Entorno Cliente",
+      completado: false
+    };
+
+    function calcularIva(precio) {
+      return precio * 0.21;
+    }
+
+    // Evento interactivo para probar en consola
+    document.getElementById('btn-accion').addEventListener('click', () => {
+      console.log("¡Botón pulsado correctamente!");
+      console.info("Objeto de prueba disponible en consola:", usuarioPrueba);
+    });
+  </script>
+</body>
+</html>
