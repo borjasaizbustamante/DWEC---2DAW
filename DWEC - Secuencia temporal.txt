@@ -1,0 +1,22 @@
+
+SECUENCIA
+----------
+
+Contenidos de la asignatura por semana (aprox):
+
+- 07/09/2026 - UD1 Selección de herramientas, UD2 Introducción a JS - Introducción
+- 14/09/2026 - UD2 Introducción a JS
+- 21/09/2026 - UD3 Objetos Predefinidos
+- 28/09/2026 - UD4 Arrays, funciones y objetos
+- 05/10/2026 - UD5 Eventos y formularios
+- 12/10/2026 - UD6 Utilización del DOM
+
+
+Reto (Fechas Aprox):
+
+- Inicio: 19/10/2026 - Fin 06/11/2026
+
+
+Reto (Fechas Aprox):
+
+- 09/11/2026
