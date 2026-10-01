@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Básico de WebGL</title>
+    <style>
+        canvas { border: 1px solid black; }
+    </style>
+</head>
+<body>
+
+    <canvas id="glCanvas" width="400" height="400"></canvas>
+
+    <script>
+        window.onload = function() {
+
+            // 1. Obtener el contexto WebGL 
+            const canvas = document.getElementById("glCanvas");
+            const gl = canvas.getContext("webgl");
+
+            if (!gl) {
+                alert("Tu navegador no soporta WebGL");
+                return;
+            }
+
+            // 2. Definir los Shaders en código fuente (GLSL)
+            
+            // Vertex Shader: procesa las posiciones de los vértices en el espacio 2D/3D
+            const vsSource = `
+                attribute vec2 aPosition;
+                void main() {
+                    gl_Position = vec4(aPosition, 0.0, 1.0);
+                }
+            `;
+
+            // Fragment Shader: determina el color de cada píxel (R, G, B, Alfa)
+            const fsSource = `
+                precision mediump float;
+                void main() {
+                    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0); // Rojo puro
+                }
+            `;
+
+            // 3. Función auxiliar para compilar un Shader
+            function createShader(gl, type, source) {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, source);
+                gl.compileShader(shader);
+                return shader;
+            }
+
+            const vertexShader = createShader(gl, gl.VERTEX_SHADER, vsSource);
+            const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fsSource);
+
+            // 4. Enlazar ambos Shaders en un Programa WebGL
+            const program = gl.createProgram();
+            gl.attachShader(program, vertexShader);
+            gl.attachShader(program, fragmentShader);
+            gl.linkProgram(program);
+            gl.useProgram(program);
+
+            // 5. Definir la geometría del triángulo (Coordenadas WebGL entre -1.0 y 1.0)
+            const positions = new Float32Array([
+                 0.0,  0.5,  // Vértice 1 (Arriba centro)
+                -0.5, -0.5,  // Vértice 2 (Abajo izquierda)
+                 0.5, -0.5   // Vértice 3 (Abajo derecha)
+            ]);
+
+            // 6. Enviar las coordenadas a la memoria de la GPU (Buffer)
+            const positionBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+            gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
+
+            // 7. Conectar el Buffer con el atributo 'aPosition' del Vertex Shader
+            const positionAttributeLocation = gl.getAttribLocation(program, "aPosition");
+            gl.enableVertexAttribArray(positionAttributeLocation);
+            gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+
+            // 8. Limpiar el lienzo y Renderizar
+            gl.clearColor(0.9, 0.9, 0.9, 1.0); // Fondo gris claro
+            gl.clear(gl.COLOR_BUFFER_BIT);
+
+            // Orden final de dibujado: 3 vértices empezando desde el índice 0
+            gl.drawArrays(gl.TRIANGLES, 0, 3);
+        };
+    </script>
+
+</body>
+</html>

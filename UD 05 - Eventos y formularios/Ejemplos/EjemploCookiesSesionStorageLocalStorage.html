@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies t Web Storage</title>
+    <style>
+        h2 {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Contador cookies: </h2>
+    <h2 id="H2contador"></h2>
+    <br>
+    <button id="subirContador">Subir Contador</button>
+    <br><br>
+    <h2>Contador session storage: </h2>
+    <h2 id="H2contadorSS"></h2>
+    <br>
+    <button id="subirContadorSS">Subir Contador</button>
+    <br><br>
+    <h2>Contador local storage: </h2>
+    <h2 id="H2contadorLS"></h2>
+    <br>
+    <button id="subirContadorLS">Subir Contador</button>
+
+    <script>
+
+        //-------------------------------------------------------------------//
+        //
+        // ESTE EJEMPLO se tiene que probar en un servidor. Si no tienes uno, 
+        // Añade el plugin "Live Server" en Visual Studio Code y ejecuta el 
+        // proyecto con él.
+        //
+        //-------------------------------------------------------------------//
+
+
+
+        window.onload = iniciar;
+        function iniciar() {
+            // EVENTOS
+            document.getElementById("subirContador").addEventListener("click", subirContador);
+            document.getElementById("subirContadorSS").addEventListener("click", subirContadorSS);
+            document.getElementById("subirContadorLS").addEventListener("click", subirContadorLS);
+            
+            // COOKIES - Sacamos "contador" de las cookies. Si no existe, el valor es 0.
+			// Si existe, le ponemos ese valor. 
+            // Mira más abajo getCookie() y subirContador ()
+            contador = getCookie("contador");
+            if (contador == "") {
+                document.getElementById("H2contador").innerHTML = 0;
+                setCookie("contador", 0, 5);
+                contador = 0;
+            } else {
+                document.getElementById("H2contador").innerHTML = contador;
+                contador = parseInt(contador);
+            }
+
+            // SESSION STORAGE - Sacamos "contadorss" de sesión, con la misma lógica de más arriba.
+            // Mira más abajo subirContadorSS ()
+            contadorSS = sessionStorage.getItem("contadorSS");
+            if (contadorSS==null) {
+                sessionStorage.setItem("contadorSS", 0);
+                document.getElementById("H2contadorSS").innerHTML = 0;
+                contadorSS = 0;
+            } else {
+                document.getElementById("H2contadorSS").innerHTML = contadorSS;
+                contadorSS = parseInt(contadorSS);
+            }
+			
+            // LOCAL STORAGE - Sacamos "contadorss" de sesión, con la misma lógica de más arriba.
+            // Mira más abajo subirContadorLS ()
+            contadorLS = localStorage.getItem("contadorLS");
+            if (contadorLS==null) {
+                localStorage.setItem("contadorLS", 0);
+                document.getElementById("H2contadorLS").innerHTML = 0;
+                contadorLS = 0;
+            } else {
+                document.getElementById("H2contadorLS").innerHTML = contadorLS;
+                contadorLS = parseInt(contadorLS);
+            }
+        }
+
+        // ------------------------------------------------------------------//
+        // COOKIES
+
+		// Función que aumenta el contador
+        function subirContador () {
+            contador++;
+            document.getElementById("H2contador").innerHTML = contador;
+            setCookie("contador", contador, 5);
+        }
+
+		// Añadimos una cookie
+		// setCookie (Nombre_cookie, valor_cookiem, nº_días_expira_cookie) 
+        function setCookie(cname, cvalue, exdays) {
+			// Fecha actual
+            var d = new Date(); 
+			
+			// Añadimos el nº de días en los que expira 
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000)); 
+			
+			// Formato GMT  
+            var expires = "expires=" + d.toUTCString(); 
+			
+			// Se crea la cookie. Ahora está en el dísco duro por 5 días!! (ERROR!!!)
+            document.cookie = cname + "=" + cvalue + "; " + expires; 
+			
+			// SI PASA QUE no vemos el valor original al al cerrar el navegador,
+			// se debe a que debemos especificar siempre la ruta path=/
+			// Para que los navegadores encuentren la ruta específica. 
+			// Descomenta esta línea para ver que sí funciona en realidad. 
+			//
+			//document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/";
+        }
+
+        // Buscamos una cookie por su nombre y devolvemos su valor. 
+        function getCookie(cname) {
+            // Crea una variable con el texto del campo y un igual
+            var name = cname + "="; 
+
+            // Divide la cookie en trozos separados  por ;
+            var ca = document.cookie.split(';');
+
+            // Recorre cada trozo de la cookie
+            for (var i = 0; i < ca.length; i++) {   
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+
+                // Si encuentra el campo buscado lo devuelvo
+                if (c.indexOf(name) == 0) //Si encuentra el campo buscado
+                    return c.substring(name.length, c.length); 
+            }
+            return ""; //Sino devuelve vacío
+        }
+
+         // ------------------------------------------------------------------//
+         // Session Storage 
+
+        function subirContadorSS() {
+            contadorSS++;
+            document.getElementById("H2contadorSS").innerHTML = contadorSS;
+            sessionStorage.setItem("contadorSS", contadorSS);
+        }
+
+         // ------------------------------------------------------------------//
+         // Local Storage
+
+        function subirContadorLS() {
+            contadorLS++;
+            document.getElementById("H2contadorLS").innerHTML = contadorLS;
+            localStorage.setItem("contadorLS", contadorLS);
+        }
+
+    </script>
+
+</body>
+</html>

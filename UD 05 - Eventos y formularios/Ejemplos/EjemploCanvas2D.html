@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Canvas 2D</title>
+    <style>
+        /* Borde opcional para visualizar el área del lienzo */
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Atributos separados correctamente por espacios -->
+    <canvas id="myCanvas" width="300" height="300"></canvas>
+
+    <script>
+        window.onload = function() {
+            var canvas = document.getElementById('myCanvas');
+            var ctx = canvas.getContext('2d');
+
+            // 1. Dibujar una línea diagonal
+            ctx.beginPath();
+            ctx.moveTo(50, 50);
+            ctx.lineTo(200, 150);
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+
+            // 2. Dibujar un rectángulo azul
+            ctx.fillStyle = "blue";
+            ctx.fillRect(20, 20, 100, 100);
+
+            // 3. Dibujar un círculo relleno
+            ctx.beginPath(); // Abrimos nueva ruta para no arrastrar la línea anterior
+            ctx.arc(200, 200, 40, 0, 2 * Math.PI); // Movido para no tapar el rectángulo
+            ctx.fillStyle = "red";
+            ctx.fill();
+
+            // 4. Cargar y dibujar una imagen externa
+            var img = new Image();
+            
+            // Asignamos el evento ONLOAD ANTES de indicar la ruta (src)
+            img.onload = function() {
+                // Dibujamos la imagen en la posición (0,0)
+                ctx.drawImage(img, 0, 0, 80, 80); // Redimensionada a 80x80px para ver el resto de formas
+            };
+            
+            img.src = 'image.jpg'; // Se activa la descarga tras configurar el onload
+        };
+    </script>
+
+</body>
+</html>

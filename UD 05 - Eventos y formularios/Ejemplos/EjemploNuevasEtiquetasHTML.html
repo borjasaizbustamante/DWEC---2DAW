@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevas etiquetas HTML</title>
+</head>
+
+<body>
+    <!--
+        1. Datalist
+        2. Accept y capture
+        3. Dialog
+        4. Details y Summary
+        5. Popover
+        6. Search
+    -->
+    <h2>DATALIST</h2>
+    <label for="">Datalist con texto</label><input list="languages" type="text" name="" id="">
+    <datalist id="languages">
+        <option value="Javascript"></option>
+        <option value="Java"></option>
+        <option value="PHP"></option>
+    </datalist>
+    <br>
+    <label for="">Dataluist con Time</label>
+    <input list="horas" type="time" name="" id="">
+    <datalist id="horas">
+        <option value="12:00"></option>
+        <option value="13:00"></option>
+        <option value="14:00"></option>
+    </datalist>
+
+    <h2>ACCEPT Y CAPTURE</h2>
+    <label for="">Imagen</label>
+    <input type="file" accept="image/*" capture="user">
+    <br><label for="">Video</label>
+    <input type="file" accept="video/*" capture="enviroment">
+
+
+    <h2>DIALOG</h2>
+    <dialog id="dialogo">
+        <p>Esto es un cuadro de diálogo.</p>
+        <button autofocus id="cerrar">Cerrar</button>
+    </dialog>
+    <button id="mostrar">Mostrar dialog</button>
+    <script>
+        var dialog = document.getElementById("dialogo");
+
+        document.getElementById("mostrar").addEventListener("click", mostrarDialog);
+        document.getElementById("cerrar").addEventListener("click", cerrarDialog);
+
+
+        function mostrarDialog() {
+            dialog.showModal();
+        }
+
+        function cerrarDialog() {
+            dialog.close();
+        }
+    </script>
+
+    <h2>DETAILS Y SUMMARY</h2>
+    <details>
+        <summary>Mostrar</summary>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis esse dignissimos maxime id soluta eos dolorum autem
+        totam, unde, minus odio eligendi nihil praesentium quod rerum fugiat, ullam eum repudiandae?
+        </p>
+    </details>
+
+
+    <h2>POPOVER</h2>
+    <button popovertarget="mi-popover">Abrir Popover</button>
+    <div popover id="mi-popover">Saludos!!</div>
+
+    <h2>SEARCH</h2>
+    <search>
+        <form action="">
+            <input type="text"><button>Buscar</button>
+        </form>
+    </search>
+
+</body>
+
+</html>

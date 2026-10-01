@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1"></div>
+    <br/>
+    <textarea id="texto"></textarea>
+    <br/>
+    <button id="crearParrafo">Crear parrafo</button>
+    <button id="crearImagen">Crear imagen</button>
+    <button id="borrarUltimo">Borrar ultimo</button>
+    <button id="borrarPrimero">Borrar primero</button>
+    <button id="sustituirPrimeroVacio">Sustituir primer párrafo por vacío</button>
+
+    <script>
+        window.onload = iniciar;
+
+        function iniciar()  {
+            document.getElementById("crearParrafo").addEventListener("click", crearParrafo);
+            document.getElementById("crearImagen").addEventListener("click", crearImagen);
+            document.getElementById("borrarUltimo").addEventListener("click", borrarUltimo);
+            document.getElementById("borrarPrimero").addEventListener("click", borrarPrimero);
+            document.getElementById("sustituirPrimeroVacio").addEventListener("click", sustituirPrimeroVacio);
+        }
+
+        function crearParrafo() {
+            //Crear elemento
+            var parrafo = document.createElement("p");
+            //Crear texto
+            var texto = document.createTextNode(document.getElementById("texto").value);
+            //Añadir texto a parrafo
+            parrafo.appendChild(texto);
+
+            //Añadir atributos
+            parrafo.setAttribute("class", "miClase");
+            //parrafo.className = "miClase";
+
+            //Añadir el parrafo hijo a su div padre 
+            var contenedor = document.getElementById("div1");
+            contenedor.appendChild(parrafo);
+        }
+
+        function crearImagen() {
+            //Crear imagen
+            var imagen = document.createElement("img");
+
+            //Añadir atributos
+            var ruta = prompt("Introduce la ruta");
+            imagen.setAttribute("src", ruta);
+
+            imagen.alt = prompt("Introduce un texto alternativo");
+
+
+            //Añadir el parrafo hijo a su div padre 
+            var contenedor = document.getElementById("div1");
+            contenedor.appendChild(imagen);
+        }
+
+        function borrarUltimo() {
+            var contenedor = document.getElementById("div1");
+            var hijo = contenedor.lastChild;
+            contenedor.removeChild(hijo);
+
+            //document.getElementById("div1").removeChild(document.getElementById("div1").lastChild);
+        }
+
+        function borrarPrimero() {
+            var contenedor = document.getElementById("div1");
+            var hijo = contenedor.firstChild;
+            contenedor.removeChild(hijo);
+
+            //document.getElementById("div1").removeChild(document.getElementById("div1").lastChild);
+        }
+
+        function sustituirPrimeroVacio() {
+            //Crear párrafo "Vacío"
+            var contenedor = document.getElementById("div1");
+            var parrafo = document.createElement("p").appendChild(document.createTextNode("Vacío"));
+
+            //Sustituir primero
+            contenedor.replaceChild(parrafo, contenedor.firstChild); //replaceChild(nuevo, viejo)
+            
+        }
+    </script>
+
+</body>
+</html>
