@@ -1,0 +1,142 @@
+const horario = [
+    {
+        dia: "Lunes",
+        tramos: [
+            // --- DAW ---
+            { horaInicio: "15:00", horaFin: "17:00", modulo: "SERVIDOR", grupo: "DAW", aula: "A1" },
+            { horaInicio: "17:00", horaFin: "18:00", modulo: "CLIENTE", grupo: "DAW", aula: "A1" },
+            { horaInicio: "18:30", horaFin: "21:30", modulo: "CLIENTE", grupo: "DAW", aula: "A1" },
+
+            // --- DAM-V ---
+            { horaInicio: "15:00", horaFin: "16:00", modulo: "PROG", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "16:00", horaFin: "17:00", modulo: "BBDD", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "17:00", horaFin: "18:00", modulo: "SINF", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "18:30", horaFin: "19:30", modulo: "PROG", grupo: "DAM-V", aula: "B1" },
+
+            // --- DAM-A ---
+            { horaInicio: "08:00", horaFin: "09:00", modulo: "PROG", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "09:00", horaFin: "10:00", modulo: "PROG", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "10:00", horaFin: "11:00", modulo: "BBDD", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "11:30", horaFin: "12:30", modulo: "SINF", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "12:30", horaFin: "13:30", modulo: "LMSGI", grupo: "DAM-A", aula: "C1" },
+
+            // --- DAM-D ---
+            { horaInicio: "08:00", horaFin: "09:00", modulo: "SINF", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "09:00", horaFin: "10:00", modulo: "PROG", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "10:00", horaFin: "11:00", modulo: "PROG", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "11:30", horaFin: "12:30", modulo: "BBDD", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "12:30", horaFin: "13:30", modulo: "FOL", grupo: "DAM-D", aula: "D1" }
+        ]
+    },
+    {
+        dia: "Martes",
+        tramos: [
+            // --- DAW ---
+            { horaInicio: "15:00", horaFin: "17:00", modulo: "IPEII", grupo: "DAW", aula: "A1" },
+            { horaInicio: "17:00", horaFin: "18:00", modulo: "SERVIDOR", grupo: "DAW", aula: "A1" },
+            { horaInicio: "18:30", horaFin: "20:30", modulo: "SERVIDOR", grupo: "DAW", aula: "A1" },
+            { horaInicio: "20:30", horaFin: "21:30", modulo: "DESPLIEGUE", grupo: "DAW", aula: "A1" },
+
+            // --- DAM-V ---
+            { horaInicio: "15:00", horaFin: "16:00", modulo: "BBDD", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "16:00", horaFin: "17:00", modulo: "BBDD", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "17:00", horaFin: "18:00", modulo: "LMSGI", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "18:30", horaFin: "19:30", modulo: "EIE", grupo: "DAM-V", aula: "B1" },
+
+            // --- DAM-A ---
+            { horaInicio: "08:00", horaFin: "09:00", modulo: "BBDD", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "09:00", horaFin: "10:00", modulo: "BBDD", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "10:00", horaFin: "11:00", modulo: "SINF", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "11:30", horaFin: "12:30", modulo: "EIE", grupo: "DAM-A", aula: "C1" },
+
+            // --- DAM-D ---
+            { horaInicio: "08:00", horaFin: "09:00", modulo: "PROG", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "09:00", horaFin: "10:00", modulo: "LMSGI", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "10:00", horaFin: "11:00", modulo: "LMSGI", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "11:30", horaFin: "12:30", modulo: "BBDD", grupo: "DAM-D", aula: "D1" }
+        ]
+    },
+    {
+        dia: "Miércoles",
+        tramos: [
+            // --- DAW ---
+            { horaInicio: "15:00", horaFin: "17:00", modulo: "INTERFACES", grupo: "DAW", aula: "A1" },
+            { horaInicio: "17:00", horaFin: "18:00", modulo: "SERVIDOR", grupo: "DAW", aula: "A1" },
+            { horaInicio: "18:30", horaFin: "19:30", modulo: "SERVIDOR", grupo: "DAW", aula: "A1" },
+            { horaInicio: "19:30", horaFin: "21:30", modulo: "SI", grupo: "DAW", aula: "A1" },
+
+            // --- DAM-V ---
+            { horaInicio: "15:00", horaFin: "16:00", modulo: "SINF", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "16:00", horaFin: "17:00", modulo: "PROG", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "17:00", horaFin: "18:00", modulo: "PROG", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "18:30", horaFin: "19:30", modulo: "BBDD", grupo: "DAM-V", aula: "B1" },
+
+            // --- DAM-A ---
+            { horaInicio: "08:00", horaFin: "09:00", modulo: "PROG", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "09:00", horaFin: "10:00", modulo: "PROG", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "10:00", horaFin: "11:00", modulo: "LMSGI", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "11:30", horaFin: "12:30", modulo: "EIE", grupo: "DAM-A", aula: "C1" },
+
+            // --- DAM-D ---
+            { horaInicio: "08:00", horaFin: "09:00", modulo: "BBDD", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "09:00", horaFin: "10:00", modulo: "BBDD", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "10:00", horaFin: "11:00", modulo: "PROG", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "11:30", horaFin: "12:30", modulo: "SINF", grupo: "DAM-D", aula: "D1" }
+        ]
+    },
+    {
+        dia: "Jueves",
+        tramos: [
+            // --- DAW (tarde) ---
+            { horaInicio: "15:00", horaFin: "17:00", modulo: "OPT2", grupo: "DAW", aula: "A1" },
+            { horaInicio: "17:00", horaFin: "18:00", modulo: "OPT1", grupo: "DAW", aula: "A1" },
+            { horaInicio: "18:30", horaFin: "19:30", modulo: "OPT1", grupo: "DAW", aula: "A1" },
+            { horaInicio: "19:30", horaFin: "21:30", modulo: "INTERFACES", grupo: "DAW", aula: "A1" },
+
+            // --- DAM-V ---
+            { horaInicio: "15:00", horaFin: "16:00", modulo: "PROG", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "16:00", horaFin: "17:00", modulo: "PROG", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "17:00", horaFin: "18:00", modulo: "EIE", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "18:30", horaFin: "19:30", modulo: "LMSGI", grupo: "DAM-V", aula: "B1" },
+
+            // --- DAM-A ---
+            { horaInicio: "08:00", horaFin: "09:00", modulo: "SINF", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "09:00", horaFin: "10:00", modulo: "BBDD", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "10:00", horaFin: "11:00", modulo: "BBDD", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "11:30", horaFin: "12:30", modulo: "LMSGI", grupo: "DAM-A", aula: "C1" },
+
+            // --- DAM-D ---
+            { horaInicio: "08:00", horaFin: "09:00", modulo: "PROG", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "09:00", horaFin: "10:00", modulo: "SINF", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "10:00", horaFin: "11:00", modulo: "EIE", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "11:30", horaFin: "12:30", modulo: "LMSGI", grupo: "DAM-D", aula: "D1" }
+        ]
+    },
+    {
+        dia: "Viernes",
+        tramos: [
+            // --- DAW ---
+            { horaInicio: "15:00", horaFin: "17:00", modulo: "DESPLIEGUE", grupo: "DAW", aula: "A1" },
+            { horaInicio: "17:00", horaFin: "18:00", modulo: "IPEII", grupo: "DAW", aula: "A1" },
+            { horaInicio: "18:30", horaFin: "21:30", modulo: "SI", grupo: "DAW", aula: "A1" },
+
+            // --- DAM-V ---
+            { horaInicio: "15:00", horaFin: "16:00", modulo: "SINF", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "16:00", horaFin: "17:00", modulo: "BBDD", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "17:00", horaFin: "18:00", modulo: "LMSGI", grupo: "DAM-V", aula: "B1" },
+            { horaInicio: "18:30", horaFin: "19:30", modulo: "EIE", grupo: "DAM-V", aula: "B1" },
+
+            // --- DAM-A ---
+            { horaInicio: "08:00", horaFin: "09:00", modulo: "PROG", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "09:00", horaFin: "10:00", modulo: "PROG", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "10:00", horaFin: "11:00", modulo: "EIE", grupo: "DAM-A", aula: "C1" },
+            { horaInicio: "11:30", horaFin: "12:30", modulo: "FOL", grupo: "DAM-A", aula: "C1" },
+
+            // --- DAM-D ---
+            { horaInicio: "08:00", horaFin: "09:00", modulo: "BBDD", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "09:00", horaFin: "10:00", modulo: "BBDD", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "10:00", horaFin: "11:00", modulo: "SINF", grupo: "DAM-D", aula: "D1" },
+            { horaInicio: "11:30", horaFin: "12:30", modulo: "PROG", grupo: "DAM-D", aula: "D1" }
+        ]
+    }
+];

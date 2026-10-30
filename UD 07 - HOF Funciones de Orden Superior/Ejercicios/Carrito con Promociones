@@ -1,0 +1,15 @@
+const carrito = [
+    { sku: "P01", nombre: "Teclado mecánico", unidades: 1, precio: 80, categoria: "perifericos" },
+    { sku: "P02", nombre: "Ratón gaming", unidades: 2, precio: 40, categoria: "perifericos" },
+    { sku: "P03", nombre: "Monitor 27\"", unidades: 1, precio: 250, categoria: "monitores" },
+    { sku: "P04", nombre: "Cable HDMI", unidades: 3, precio: 10, categoria: "cables" }
+];
+
+const promociones = [
+    { tipo: "porcentaje", categoria: "perifericos", descuento: 0.10 }, // -10% a esa categoría
+    { tipo: "envio_gratis", minimo: 300 }, // si importe neto >= 300 → envío 0
+    { tipo: "descuento_fijo", sku: "P03", cantidad: 20 } // -20€ al monitor
+];
+
+const gastosEnvioBase = 9.90;
+const iva = 0.21;

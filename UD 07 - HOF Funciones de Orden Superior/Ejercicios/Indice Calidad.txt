@@ -1,0 +1,92 @@
+const bloqueados = ["u9"];
+
+const posts = [
+  {
+    id: "p1",
+    titulo: "Trucos de JS",
+    comentarios: [
+      { userId: "u1", likes: 3, reports: 0, rol: "user" },
+      { userId: "u2", likes: 5, reports: 1, rol: "pro"  },
+      { userId: "u9", likes: 10, reports: 0, rol: "user" }
+    ]
+  },
+  {
+    id: "p2",
+    titulo: "CSS moderno",
+    comentarios: [
+      { userId: "u3", likes: 1, reports: 2, rol: "user" },
+      { userId: "u4", likes: 8, reports: 0, rol: "pro"  }
+    ]
+  },
+  {
+    id: "p3",
+    titulo: "Accesibilidad web",
+    comentarios: []
+  },
+{
+  id: "p4",
+  titulo: "Node.js a fondo",
+  comentarios: [
+    { userId: "u1", likes: 4, reports: 0, rol: "user" },
+    { userId: "u5", likes: 7, reports: 0, rol: "pro"  },
+    { userId: "u9", likes: 20, reports: 0, rol: "user" } // bloqueado
+  ]
+},
+{
+  id: "p5",
+  titulo: "Diseño UI con Figma",
+  comentarios: [
+    { userId: "u2", likes: 2, reports: 2, rol: "pro"  }, // reports >= 2 → fuera
+    { userId: "u3", likes: 5, reports: 0, rol: "user" },
+    { userId: "u6", likes: 6, reports: 1, rol: "pro"  }
+  ]
+},
+{
+  id: "p6",
+  titulo: "Git avanzado",
+  comentarios: [
+    { userId: "u4", likes: 10, reports: 0, rol: "pro" },
+    { userId: "u7", likes: 3,  reports: 0, rol: "user" }
+  ]
+},
+{
+  id: "p7",
+  titulo: "Webpack en 2024",
+  comentarios: [
+    { userId: "u8", likes: 1, reports: 0, rol: "user" },
+    { userId: "u2", likes: 3, reports: 1, rol: "pro" },
+    { userId: "u3", likes: 2, reports: 1, rol: "user" }
+  ]
+},
+{
+  id: "p8",
+  titulo: "Buenas prácticas en React",
+  comentarios: [
+    { userId: "u4", likes: 10, reports: 0, rol: "pro" },
+    { userId: "u5", likes: 10, reports: 0, rol: "pro" }
+  ]
+},
+{
+  id: "p9",
+  titulo: "TypeScript moderno",
+  comentarios: [
+    { userId: "u2", likes: 3, reports: 0, rol: "pro" },
+    { userId: "u3", likes: 3, reports: 0, rol: "user" },
+    { userId: "u9", likes: 1, reports: 1, rol: "user" } // bloqueado
+  ]
+},
+{
+  id: "p10",
+  titulo: "Fundamentos de HTML",
+  comentarios: [] // sin comentarios → score 0
+},
+{
+  id: "p11",
+  titulo: "Animaciones CSS",
+  comentarios: [
+    { userId: "u1", likes: 5, reports: 0, rol: "user" },
+    { userId: "u2", likes: 5, reports: 0, rol: "pro"  }, // 5 × 1.5 = 7.5
+    { userId: "u3", likes: 2, reports: 2, rol: "user" }   // reports >= 2 → fuera
+  ]
+}
+];

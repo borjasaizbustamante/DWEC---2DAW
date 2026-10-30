@@ -1,0 +1,42 @@
+const clientesVetados = ["u03"];
+const pedidos = [
+  {
+    id: 1,
+    clienteId: "u01",
+    estado: "enviado",
+    fecha: "2024-03-15",
+    lineas: [
+      { sku: "P01", nombre: "Teclado", unidades: 2, precio: 25,  dto: 0.10 },
+      { sku: "P02", nombre: "Ratón",   unidades: 1, precio: 15,  dto: 0    }
+    ]
+  },
+  {
+    id: 2,
+    clienteId: "u02",
+    estado: "cancelado",
+    fecha: "2024-04-10",
+    lineas: [
+      { sku: "P01", nombre: "Teclado", unidades: 1, precio: 25, dto: 0.20 }
+    ]
+  },
+  {
+    id: 3,
+    clienteId: "u03",
+    estado: "enviado",
+    fecha: "2024-11-01",
+    lineas: [
+      { sku: "P02", nombre: "Ratón",   unidades: 3, precio: 15, dto: 0    },
+      { sku: "P03", nombre: "Alfombrilla", unidades: 1, precio: 10, dto: 0.10 }
+    ]
+  },
+  {
+    id: 4,
+    clienteId: "u01",
+    estado: "enviado",
+    fecha: "2024-12-05",
+    lineas: [
+      { sku: "P01", nombre: "Teclado", unidades: 1, precio: 25, dto: 0    },
+      { sku: "P03", nombre: "Alfombrilla", unidades: 2, precio: 10, dto: 0.15 }
+    ]
+  }
+];

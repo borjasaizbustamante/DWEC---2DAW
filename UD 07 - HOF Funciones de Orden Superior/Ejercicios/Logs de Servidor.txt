@@ -1,0 +1,12 @@
+const logs = [
+  { ip: "10.0.0.1", endpoint: "/login",   estado: 200, tiempoMs: 120 },
+  { ip: "10.0.0.2", endpoint: "/login",   estado: 401, tiempoMs: 80  },
+  { ip: "10.0.0.3", endpoint: "/datos",   estado: 200, tiempoMs: 220 },
+  { ip: "10.0.0.2", endpoint: "/login",   estado: 401, tiempoMs: 90  },
+  { ip: "10.0.0.2", endpoint: "/login",   estado: 401, tiempoMs: 110 },
+  { ip: "10.0.0.1", endpoint: "/datos",   estado: 500, tiempoMs: 300 },
+  { ip: "10.0.0.4", endpoint: "/login",   estado: 200, tiempoMs: 70  },
+  { ip: "10.0.0.3", endpoint: "/login",   estado: 200, tiempoMs: 95  },
+  { ip: "10.0.0.3", endpoint: "/datos",   estado: 500, tiempoMs: 400 },
+  { ip: "10.0.0.2", endpoint: "/datos",   estado: 200, tiempoMs: 150 }
+];s
