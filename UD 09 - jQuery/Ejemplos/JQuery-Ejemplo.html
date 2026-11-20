@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- 
+        JQUERY
+            - Librería de Javascript que permite "escribir menos y hacer más".
+            - Hace más sencillo el uso de JavaScript en una web: reduce el código.
+            - Simplifica el trabajo con DOM y AJAX. 
+    -->
+    
+    <meta charset="utf-8" />
+       <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        /*
+		Recuerda usar un CDN oficial
+		*/
+
+        /* 
+        SINTAXIS: $(selector).accion() 
+        */
+        
+        // Ready: Se ejecuta la función cuando el documento está listo 
+        $(document).ready(function(){
+            alert("Página cargada correctamente");
+            $("#hola").text("¡Hola, mundo!");
+        });
+       
+    </script>
+    </head>
+
+<body>
+    <p id="hola"></p>
+</body>
+</html>
