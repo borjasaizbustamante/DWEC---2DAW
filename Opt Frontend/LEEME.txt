@@ -1,0 +1,13 @@
+
+LEEME
+-----
+
+Este contenido pertenece al módulo Desarrollo Frontend con Frameworks Modernos.
+Consiste en dos unidades didácticas:
+
+- UD 10 - HTMX
+ 
+- UD 11 - Vue.js
+
+Se ha mantenido la numeración orginal de cuando las dos unidades se impartían 
+en el módulo Desarrollo de Interfaces Web. 
