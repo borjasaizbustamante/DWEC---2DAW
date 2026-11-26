@@ -1,0 +1,10 @@
+
+LEEME
+-----
+
+Este ejemplo necesita que importes en Eclipse (JAVA) el proyecto HTMXServer, y lo arranques. 
+Obviamente, sólo podras ejecutar la web de ejemplo en el Visual Studio Code mientras el servidor
+JAVA esté funcionando... te lo comento por si acaso...
+
+Observa <head> en el ClienteHTMX.html y la etiqueta @CrossOrigin(origins = "*"). Ambas son 
+necesarias para que puedas acceder al servidor desde cualquier sitio. 

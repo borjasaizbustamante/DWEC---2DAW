@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Permite peticiones HTMX hacia localhost:8080 desde Live Server o archivo local -->
+    <meta name="htmx-config" content='{"selfRequestsOnly": false}'>
+    <title>Consulta de Deuda por Comunidad Autónoma</title>
+
+    <!-- HTMX 2.0 y su extensión path-params para sustituir {id} en la URL -->
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    <script src="https://unpkg.com/htmx-ext-path-params@2.0.0/path-params.js"></script>
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            line-height: 1.5;
+            color: #1f2937;
+        }
+        form {
+            background-color: #f3f4f6;
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        label {
+            font-weight: 600;
+        }
+        select {
+            padding: 0.6rem;
+            font-size: 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            background-color: #fff;
+            max-width: 350px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        th {
+            background-color: #2563eb;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+    </style>
+</head>
+<!-- Activamos la extensión path-params en todo el body -->
+<body hx-ext="path-params">
+
+    <h1>Deuda por Comunidad Autónoma</h1>
+
+    <form>
+        <label for="comunidad">Selecciona una Comunidad o Ciudad Autónoma:</label>
+
+        <select id="comunidad" 
+                name="id" 
+                hx-get="http://localhost:8080/api/deuda/{id}" 
+                hx-target="#contenedor-tabla">
+            <option value="" disabled selected>-- Elige una comunidad --</option>
+            <option value="1">Andalucía</option>
+            <option value="2">Aragón</option>
+            <option value="3">Asturias</option>
+            <option value="4">Illes Balears</option>
+            <option value="5">Canarias</option>
+            <option value="6">Cantabria</option>
+            <option value="7">Castilla y León</option>
+            <option value="8">Castilla-La Mancha</option>
+            <option value="9">Cataluña</option>
+            <option value="10">Extremadura</option>
+            <option value="11">Galicia</option>
+            <option value="12">Comunidad de Madrid</option>
+            <option value="13">Región de Murcia</option>
+            <option value="14">Comunidad Foral de Navarra</option>
+            <option value="15">País Vasco</option>
+            <option value="16">La Rioja</option>
+            <option value="17">Comunitat Valenciana</option>
+            <option value="18">Ceuta</option>
+            <option value="19">Melilla</option>
+        </select>
+    </form>
+
+    <!-- 
+        hx-trigger="load" lanza la petición GET automáticamente al cargar la página 
+        e inserta la tabla inicial dentro de este mismo div
+    -->
+    <div id="contenedor-tabla" 
+         hx-get="http://localhost:8080/api/deuda" 
+         hx-trigger="load">
+        <p>Cargando datos de deuda...</p>
+    </div>
+
+</body>
+</html>

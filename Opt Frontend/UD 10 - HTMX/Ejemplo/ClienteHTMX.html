@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Permite que HTMX haga peticiones a otros puertos/servidores (como localhost:8080) -->
+    <meta name="htmx-config" content='{"selfRequestsOnly": false}'>
+    <title>Prueba HTMX + Java</title>
+    <!-- Carga de HTMX -->
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+</head>
+<body>
+
+    <h2>1. Petición GET automática</h2>
+    <button hx-get="http://localhost:8080/api/serverTime" hx-target="#caja-hora">
+        Consultar hora al servidor
+    </button>
+    <div id="caja-hora"></div>
+
+    <hr>
+
+    <h2>2. Buscador reactivo (sin botón)</h2>
+    <input type="text" 
+           name="query" 
+           placeholder="Buscar alumno..."
+           hx-get="http://localhost:8080/api/find" 
+           hx-trigger="keyup changed delay:300ms" 
+           hx-target="#lista-resultados">
+    <ul id="lista-resultados"></ul>
+
+    <hr>
+
+    <h2>3. Envío de formulario POST</h2>
+    <form hx-post="http://localhost:8080/api/sayHello" hx-target="#respuesta-form">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="respuesta-form"></div>
+
+</body>
+</html>
